@@ -1,0 +1,942 @@
+{
+  "paragraphs": [
+    {
+      "title": "Select what you would like to view",
+      "text": "%python",
+      "user": "anonymous",
+      "dateUpdated": "Nov 19, 2017 7:04:28 AM",
+      "config": {
+        "colWidth": 6.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala",
+        "runOnSelectionChange": true,
+        "title": true,
+        "editorHide": true
+      },
+      "settings": {
+        "params": {
+          "formName": "",
+          "day": "1",
+          "Select Grade:": "7"
+        },
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1511049636017_-1219463970",
+      "id": "20171119-000036_690636052",
+      "dateCreated": "Nov 19, 2017 12:00:36 AM",
+      "dateStarted": "Nov 19, 2017 5:52:07 AM",
+      "dateFinished": "Nov 19, 2017 5:52:07 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n\nimport sqlite3\n\ndb \u003d \"/notebook/data/data.db\"\ntable_name \u003d \"data\"\nconn \u003d sqlite3.connect(db)\n",
+      "user": "anonymous",
+      "dateUpdated": "Nov 19, 2017 7:04:49 AM",
+      "config": {
+        "colWidth": 6.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/python",
+        "editorHide": true,
+        "tableHide": true,
+        "lineNumbers": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1511061392068_-541092449",
+      "id": "20171119-031632_441583707",
+      "dateCreated": "Nov 19, 2017 3:16:32 AM",
+      "dateStarted": "Nov 19, 2017 7:04:49 AM",
+      "dateFinished": "Nov 19, 2017 7:04:49 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Select Grade:",
+      "text": "%pyspark\n\noptions \u003d list()\nfor k in conn.execute(\"select GRADE from %s\" % table_name):\n    options.append(k[0])\noptions \u003d list(set(options))\ngrades \u003d [g for g in z.checkbox(\"Select Grade(s)\",\n        [(str(i), str(i)) for i in options],\n        options)]\n",
+      "user": "anonymous",
+      "dateUpdated": "Nov 19, 2017 7:04:49 AM",
+      "config": {
+        "colWidth": 7.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/python",
+        "runOnSelectionChange": true,
+        "title": true,
+        "editorHide": true
+      },
+      "settings": {
+        "params": {
+          "formName": "",
+          "Select Grade:": 8.0,
+          "": 12.0,
+          "Select Grade(s)": [
+            11.0,
+            12.0,
+            9.0,
+            "10",
+            "12",
+            "8",
+            "9",
+            "11"
+          ],
+          "fruit": []
+        },
+        "forms": {
+          "Select Grade(s)": {
+            "name": "Select Grade(s)",
+            "displayName": "Select Grade(s)",
+            "type": "checkbox",
+            "defaultValue": [
+              8.0,
+              9.0,
+              10.0,
+              11.0,
+              12.0
+            ],
+            "options": [
+              {
+                "value": "8",
+                "displayName": "8"
+              },
+              {
+                "value": "9",
+                "displayName": "9"
+              },
+              {
+                "value": "10",
+                "displayName": "10"
+              },
+              {
+                "value": "11",
+                "displayName": "11"
+              },
+              {
+                "value": "12",
+                "displayName": "12"
+              }
+            ],
+            "hidden": false
+          }
+        }
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1511051186477_1482252076",
+      "id": "20171119-002626_1018963336",
+      "dateCreated": "Nov 19, 2017 12:26:26 AM",
+      "dateStarted": "Nov 19, 2017 7:04:49 AM",
+      "dateFinished": "Nov 19, 2017 7:04:49 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n\nwhere_grade \u003d \"\"\nif grades:\n    where_grade \u003d (\"(\" +\n        \" OR \".join([\"GRADE \u003d \" + i for i in grades]) +\n        \")\")\n",
+      "user": "anonymous",
+      "dateUpdated": "Nov 19, 2017 7:04:28 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python"
+        },
+        "editorMode": "ace/mode/python",
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1511072495215_964251491",
+      "id": "20171119-062135_388833309",
+      "dateCreated": "Nov 19, 2017 6:21:35 AM",
+      "dateStarted": "Nov 19, 2017 7:04:21 AM",
+      "dateFinished": "Nov 19, 2017 7:04:21 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Start Date",
+      "text": "%pyspark\n# Create text input form\nstart_month \u003d z.select(\"Month:\", [(1, \u0027Jan\u0027),(2,\u0027Feb\u0027),(3,\u0027Mar\u0027),(4,\u0027Apr\u0027),(5,\u0027May\u0027),(6,\u0027June\u0027),(7,\u0027July\u0027),(8,\u0027Aug\u0027),(9,\u0027Sept\u0027),(10,\u0027Oct\u0027),(11,\u0027Nov\u0027),(12,\u0027Dec\u0027)])\n\n# Create text input form\nstart_day \u003d z.select(\"Day:\", [(1, \u00271\u0027),(2,\u00272\u0027),(3,\u00273\u0027),(4,\u00274\u0027),(5,\u00275\u0027),(6,\u00276\u0027),(7,\u00277\u0027),(8,\u00278\u0027),(9,\u00279\u0027),(10,\u002710\u0027),\n                           (11,\u002711\u0027),(13,\u002713\u0027),(14,\u002714\u0027),(15,\u002715\u0027),(16,\u002716\u0027),(17,\u002717\u0027),(18,\u002718\u0027),(19,\u002719\u0027),(20,\u002720\u0027),\n                           (21,\u002721\u0027),(22,\u002722\u0027),(23,\u002723\u0027),(24,\u002724\u0027),(25,\u002725\u0027),(26,\u002726\u0027),(27,\u002727\u0027),(28,\u002728\u0027),(29,\u002729\u0027),(30,\u002730\u0027),(31,\u002731\u0027)])\n             \nstart_year \u003d z.select(\"Year:\", [(2015, \u00272015\u0027),(2016,\u00272016\u0027),(2017,\u00272017\u0027)])              ",
+      "user": "anonymous",
+      "dateUpdated": "Nov 19, 2017 7:04:49 AM",
+      "config": {
+        "colWidth": 4.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/python",
+        "title": true,
+        "runOnSelectionChange": true,
+        "editorHide": true
+      },
+      "settings": {
+        "params": {
+          "formName": "",
+          "Select Grade:": 1.0,
+          "Month:": 1.0,
+          "Day:": 4.0,
+          "Year:": 2017.0
+        },
+        "forms": {
+          "Month:": {
+            "name": "Month:",
+            "displayName": "Month:",
+            "type": "select",
+            "defaultValue": "",
+            "options": [
+              {
+                "value": 1.0,
+                "displayName": "Jan"
+              },
+              {
+                "value": 2.0,
+                "displayName": "Feb"
+              },
+              {
+                "value": 3.0,
+                "displayName": "Mar"
+              },
+              {
+                "value": 4.0,
+                "displayName": "Apr"
+              },
+              {
+                "value": 5.0,
+                "displayName": "May"
+              },
+              {
+                "value": 6.0,
+                "displayName": "June"
+              },
+              {
+                "value": 7.0,
+                "displayName": "July"
+              },
+              {
+                "value": 8.0,
+                "displayName": "Aug"
+              },
+              {
+                "value": 9.0,
+                "displayName": "Sept"
+              },
+              {
+                "value": 10.0,
+                "displayName": "Oct"
+              },
+              {
+                "value": 11.0,
+                "displayName": "Nov"
+              },
+              {
+                "value": 12.0,
+                "displayName": "Dec"
+              }
+            ],
+            "hidden": false
+          },
+          "Day:": {
+            "name": "Day:",
+            "displayName": "Day:",
+            "type": "select",
+            "defaultValue": "",
+            "options": [
+              {
+                "value": 1.0,
+                "displayName": "1"
+              },
+              {
+                "value": 2.0,
+                "displayName": "2"
+              },
+              {
+                "value": 3.0,
+                "displayName": "3"
+              },
+              {
+                "value": 4.0,
+                "displayName": "4"
+              },
+              {
+                "value": 5.0,
+                "displayName": "5"
+              },
+              {
+                "value": 6.0,
+                "displayName": "6"
+              },
+              {
+                "value": 7.0,
+                "displayName": "7"
+              },
+              {
+                "value": 8.0,
+                "displayName": "8"
+              },
+              {
+                "value": 9.0,
+                "displayName": "9"
+              },
+              {
+                "value": 10.0,
+                "displayName": "10"
+              },
+              {
+                "value": 11.0,
+                "displayName": "11"
+              },
+              {
+                "value": 13.0,
+                "displayName": "13"
+              },
+              {
+                "value": 14.0,
+                "displayName": "14"
+              },
+              {
+                "value": 15.0,
+                "displayName": "15"
+              },
+              {
+                "value": 16.0,
+                "displayName": "16"
+              },
+              {
+                "value": 17.0,
+                "displayName": "17"
+              },
+              {
+                "value": 18.0,
+                "displayName": "18"
+              },
+              {
+                "value": 19.0,
+                "displayName": "19"
+              },
+              {
+                "value": 20.0,
+                "displayName": "20"
+              },
+              {
+                "value": 21.0,
+                "displayName": "21"
+              },
+              {
+                "value": 22.0,
+                "displayName": "22"
+              },
+              {
+                "value": 23.0,
+                "displayName": "23"
+              },
+              {
+                "value": 24.0,
+                "displayName": "24"
+              },
+              {
+                "value": 25.0,
+                "displayName": "25"
+              },
+              {
+                "value": 26.0,
+                "displayName": "26"
+              },
+              {
+                "value": 27.0,
+                "displayName": "27"
+              },
+              {
+                "value": 28.0,
+                "displayName": "28"
+              },
+              {
+                "value": 29.0,
+                "displayName": "29"
+              },
+              {
+                "value": 30.0,
+                "displayName": "30"
+              },
+              {
+                "value": 31.0,
+                "displayName": "31"
+              }
+            ],
+            "hidden": false
+          },
+          "Year:": {
+            "name": "Year:",
+            "displayName": "Year:",
+            "type": "select",
+            "defaultValue": "",
+            "options": [
+              {
+                "value": 2015.0,
+                "displayName": "2015"
+              },
+              {
+                "value": 2016.0,
+                "displayName": "2016"
+              },
+              {
+                "value": 2017.0,
+                "displayName": "2017"
+              }
+            ],
+            "hidden": false
+          }
+        }
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1511051658556_1927292183",
+      "id": "20171119-003418_670817004",
+      "dateCreated": "Nov 19, 2017 12:34:18 AM",
+      "dateStarted": "Nov 19, 2017 7:04:49 AM",
+      "dateFinished": "Nov 19, 2017 7:04:49 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "",
+      "text": "",
+      "user": "anonymous",
+      "dateUpdated": "Nov 19, 2017 7:04:28 AM",
+      "config": {
+        "colWidth": 1.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala",
+        "title": false,
+        "runOnSelectionChange": true,
+        "editorHide": true
+      },
+      "settings": {
+        "params": {
+          "formName": "",
+          "Select Grade:": 1.0,
+          "Month:": "",
+          "Day:": "",
+          "Year:": ""
+        },
+        "forms": {}
+      },
+      "results": {
+        "code": "ERROR",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1511053267644_-466728797",
+      "id": "20171119-010107_1969485102",
+      "dateCreated": "Nov 19, 2017 1:01:07 AM",
+      "dateStarted": "Nov 19, 2017 1:02:30 AM",
+      "dateFinished": "Nov 19, 2017 1:02:30 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "End Date",
+      "text": "%pyspark\n# Create text input form\nend_month \u003d z.select(\"Month:\", [(1, \u0027Jan\u0027),(2,\u0027Feb\u0027),(3,\u0027Mar\u0027),(4,\u0027Apr\u0027),(5,\u0027May\u0027),(6,\u0027June\u0027),(7,\u0027July\u0027),(8,\u0027Aug\u0027),(9,\u0027Sept\u0027),(10,\u0027Oct\u0027),(11,\u0027Nov\u0027),(12,\u0027Dec\u0027)])\n\n# Create text input form\nend_day \u003d z.select(\"Day:\", [(1, \u00271\u0027),(2,\u00272\u0027),(3,\u00273\u0027),(4,\u00274\u0027),(5,\u00275\u0027),(6,\u00276\u0027),(7,\u00277\u0027),(8,\u00278\u0027),(9,\u00279\u0027),(10,\u002710\u0027),\n                           (11,\u002711\u0027),(13,\u002713\u0027),(14,\u002714\u0027),(15,\u002715\u0027),(16,\u002716\u0027),(17,\u002717\u0027),(18,\u002718\u0027),(19,\u002719\u0027),(20,\u002720\u0027),\n                           (21,\u002721\u0027),(22,\u002722\u0027),(23,\u002723\u0027),(24,\u002724\u0027),(25,\u002725\u0027),(26,\u002726\u0027),(27,\u002727\u0027),(28,\u002728\u0027),(29,\u002729\u0027),(30,\u002730\u0027),(31,\u002731\u0027)])\n             \nend_year \u003d z.select(\"Year:\", [(2015, \u00272015\u0027),(2016,\u00272016\u0027),(2017,\u00272017\u0027)])              ",
+      "user": "anonymous",
+      "dateUpdated": "Nov 19, 2017 7:04:49 AM",
+      "config": {
+        "colWidth": 4.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/python",
+        "title": true,
+        "runOnSelectionChange": true,
+        "editorHide": true
+      },
+      "settings": {
+        "params": {
+          "formName": "",
+          "Select Grade:": 1.0,
+          "Month:": 12.0,
+          "Day:": 2.0,
+          "Year:": 2017.0
+        },
+        "forms": {
+          "Month:": {
+            "name": "Month:",
+            "displayName": "Month:",
+            "type": "select",
+            "defaultValue": "",
+            "options": [
+              {
+                "value": 1.0,
+                "displayName": "Jan"
+              },
+              {
+                "value": 2.0,
+                "displayName": "Feb"
+              },
+              {
+                "value": 3.0,
+                "displayName": "Mar"
+              },
+              {
+                "value": 4.0,
+                "displayName": "Apr"
+              },
+              {
+                "value": 5.0,
+                "displayName": "May"
+              },
+              {
+                "value": 6.0,
+                "displayName": "June"
+              },
+              {
+                "value": 7.0,
+                "displayName": "July"
+              },
+              {
+                "value": 8.0,
+                "displayName": "Aug"
+              },
+              {
+                "value": 9.0,
+                "displayName": "Sept"
+              },
+              {
+                "value": 10.0,
+                "displayName": "Oct"
+              },
+              {
+                "value": 11.0,
+                "displayName": "Nov"
+              },
+              {
+                "value": 12.0,
+                "displayName": "Dec"
+              }
+            ],
+            "hidden": false
+          },
+          "Day:": {
+            "name": "Day:",
+            "displayName": "Day:",
+            "type": "select",
+            "defaultValue": "",
+            "options": [
+              {
+                "value": 1.0,
+                "displayName": "1"
+              },
+              {
+                "value": 2.0,
+                "displayName": "2"
+              },
+              {
+                "value": 3.0,
+                "displayName": "3"
+              },
+              {
+                "value": 4.0,
+                "displayName": "4"
+              },
+              {
+                "value": 5.0,
+                "displayName": "5"
+              },
+              {
+                "value": 6.0,
+                "displayName": "6"
+              },
+              {
+                "value": 7.0,
+                "displayName": "7"
+              },
+              {
+                "value": 8.0,
+                "displayName": "8"
+              },
+              {
+                "value": 9.0,
+                "displayName": "9"
+              },
+              {
+                "value": 10.0,
+                "displayName": "10"
+              },
+              {
+                "value": 11.0,
+                "displayName": "11"
+              },
+              {
+                "value": 13.0,
+                "displayName": "13"
+              },
+              {
+                "value": 14.0,
+                "displayName": "14"
+              },
+              {
+                "value": 15.0,
+                "displayName": "15"
+              },
+              {
+                "value": 16.0,
+                "displayName": "16"
+              },
+              {
+                "value": 17.0,
+                "displayName": "17"
+              },
+              {
+                "value": 18.0,
+                "displayName": "18"
+              },
+              {
+                "value": 19.0,
+                "displayName": "19"
+              },
+              {
+                "value": 20.0,
+                "displayName": "20"
+              },
+              {
+                "value": 21.0,
+                "displayName": "21"
+              },
+              {
+                "value": 22.0,
+                "displayName": "22"
+              },
+              {
+                "value": 23.0,
+                "displayName": "23"
+              },
+              {
+                "value": 24.0,
+                "displayName": "24"
+              },
+              {
+                "value": 25.0,
+                "displayName": "25"
+              },
+              {
+                "value": 26.0,
+                "displayName": "26"
+              },
+              {
+                "value": 27.0,
+                "displayName": "27"
+              },
+              {
+                "value": 28.0,
+                "displayName": "28"
+              },
+              {
+                "value": 29.0,
+                "displayName": "29"
+              },
+              {
+                "value": 30.0,
+                "displayName": "30"
+              },
+              {
+                "value": 31.0,
+                "displayName": "31"
+              }
+            ],
+            "hidden": false
+          },
+          "Year:": {
+            "name": "Year:",
+            "displayName": "Year:",
+            "type": "select",
+            "defaultValue": "",
+            "options": [
+              {
+                "value": 2015.0,
+                "displayName": "2015"
+              },
+              {
+                "value": 2016.0,
+                "displayName": "2016"
+              },
+              {
+                "value": 2017.0,
+                "displayName": "2017"
+              }
+            ],
+            "hidden": false
+          }
+        }
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1511053327863_-386624405",
+      "id": "20171119-010207_1218012255",
+      "dateCreated": "Nov 19, 2017 1:02:07 AM",
+      "dateStarted": "Nov 19, 2017 7:04:49 AM",
+      "dateFinished": "Nov 19, 2017 7:04:49 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%angular\n\n\u003cform class\u003d\"form-inline\"\u003e\n  \u003cbutton type\u003d\"submit\" class\u003d\"btn btn-primary\" ng-click\u003d\"z.runParagraph(\u002720171119-002626_1018963336\u0027); \n                                                            z.runParagraph(\u002720171119-003418_670817004\u0027);\n                                                            z.runParagraph(\u002720171119-010207_1218012255\u0027);\n                                                            z.runParagraph(\u002720171119-030524_466812499\u0027);\n                                                            z.runParagraph(\u002720171119-031632_441583707\u0027);\n                                                            z.runParagraph(\u002720171119-051609_1823306021\u0027);\n                                                            z.runParagraph(\u002720171119-035138_1621305539\u0027);\n                                                            \"\u003e\n    Check Out\u003c/button\u003e\n\u003c/form\u003e\n\n",
+      "user": "anonymous",
+      "dateUpdated": "Nov 19, 2017 7:04:28 AM",
+      "config": {
+        "colWidth": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/undefined",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "ANGULAR",
+            "data": "\u003cform class\u003d\"form-inline\"\u003e\n  \u003cbutton type\u003d\"submit\" class\u003d\"btn btn-primary\" ng-click\u003d\"z.runParagraph(\u002720171119-002626_1018963336\u0027); \n                                                            z.runParagraph(\u002720171119-003418_670817004\u0027);\n                                                            z.runParagraph(\u002720171119-010207_1218012255\u0027);\n                                                            z.runParagraph(\u002720171119-030524_466812499\u0027);\n                                                            z.runParagraph(\u002720171119-031632_441583707\u0027);\n                                                            z.runParagraph(\u002720171119-051609_1823306021\u0027);\n                                                            z.runParagraph(\u002720171119-035138_1621305539\u0027);\n                                                            \"\u003e\n    Check Out\u003c/button\u003e\n\u003c/form\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1511052973371_-1999798278",
+      "id": "20171119-005613_433625229",
+      "dateCreated": "Nov 19, 2017 12:56:13 AM",
+      "dateStarted": "Nov 19, 2017 7:04:22 AM",
+      "dateFinished": "Nov 19, 2017 7:04:22 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\nfrom datetime import datetime\n\nd \u003d datetime(int(start_year), int(start_month), int(start_day))\nstart_date \u003d d.strftime(\u0027%s\u0027)\n\nd \u003d datetime(int(end_year), int(end_month), int(end_day))\nend_date \u003d d.strftime(\u0027%s\u0027)\n\n",
+      "user": "anonymous",
+      "dateUpdated": "Nov 19, 2017 7:04:49 AM",
+      "config": {
+        "colWidth": 3.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/python",
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1511060724962_40077081",
+      "id": "20171119-030524_466812499",
+      "dateCreated": "Nov 19, 2017 3:05:24 AM",
+      "dateStarted": "Nov 19, 2017 7:04:49 AM",
+      "dateFinished": "Nov 19, 2017 7:04:49 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n\nimport pandas as pd\nimport time\n\n\nquery \u003d \"select CONVERSATION_TOPIC from \" + table_name\nif where_grade or start_date or end_date:\n    query +\u003d \" where \"\n    if where_grade:\n        query +\u003d where_grade\nquery +\u003d (\" and CONVERSATION_START \u003e\u003d %s and CONVERSATION_END \u003c\u003d %s\" % (start_date, end_date))\nresults \u003d dict()\nfor k in conn.execute(query):\n    if k[0] not in results:\n        results[k[0]] \u003d 0\n    else:\n        results[k[0]] +\u003d 1\n        \nif not results:\n    print \"No records found\"\n        \ntry:\n    dic \u003d {\"topic\": list(), \"count\": list()}\n    for topic in results:\n        dic[\"topic\"].append(topic)\n        dic[\"count\"].append(results[topic])\n\n    data \u003d pd.DataFrame(data\u003ddic)\n    df \u003d sqlContext.createDataFrame(data)\n    df.registerTempTable(\"test\")\n\n    pattern \u003d \u0027%Y-%m-%d\u0027\n    print \"Topics that students%s discussed between %s and %s\" % ((\" in grades \" + \", \".join(sorted(grades))) if grades else \" in all grades\",\n            time.strftime(pattern, time.localtime(float(start_date))), time.strftime(pattern, time.localtime(float(end_date))))\nexcept:\n    pass",
+      "user": "anonymous",
+      "dateUpdated": "Nov 19, 2017 7:04:49 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python"
+        },
+        "editorMode": "ace/mode/python",
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Topics that students in grades 10, 11, 12, 8, 9 discussed between 2017-01-04 and 2017-12-02\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1511068569683_-507805426",
+      "id": "20171119-051609_1823306021",
+      "dateCreated": "Nov 19, 2017 5:16:09 AM",
+      "dateStarted": "Nov 19, 2017 7:04:49 AM",
+      "dateFinished": "Nov 19, 2017 7:04:49 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sql\nSELECT topic, count\nFROM test\n",
+      "user": "anonymous",
+      "dateUpdated": "Nov 19, 2017 7:04:49 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "pieChart",
+              "height": 309.0,
+              "optionOpen": false
+            },
+            "helium": {}
+          }
+        },
+        "editorSetting": {
+          "language": "sql"
+        },
+        "editorMode": "ace/mode/sql",
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "topic\tcount\nFaith\t4\nAnxiety\t44\nLove\t5\nCareer\t3\nSex\t4\nBible\t9\nMarriage\t4\nSuicide\t20\nGospel\t20\nDiscipleship\t3\nWorship\t2\nDepression\t37\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1511063498706_891915482",
+      "id": "20171119-035138_1621305539",
+      "dateCreated": "Nov 19, 2017 3:51:38 AM",
+      "dateStarted": "Nov 19, 2017 7:04:49 AM",
+      "dateFinished": "Nov 19, 2017 7:04:49 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n",
+      "user": "anonymous",
+      "dateUpdated": "Nov 19, 2017 7:04:28 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python"
+        },
+        "editorMode": "ace/mode/python",
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1511063537765_-1560428035",
+      "id": "20171119-035217_1484474288",
+      "dateCreated": "Nov 19, 2017 3:52:17 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "Analytics for Christ by 4-EVER YOUNG",
+  "id": "2CZUJ4PM1",
+  "angularObjects": {
+    "2CXUDNETA:shared_process": [],
+    "2CZDMPW6D:shared_process": [],
+    "2D1UJBDY3:shared_process": [],
+    "2CXV8MD6Q:shared_process": [],
+    "2CY7783CR:shared_process": [],
+    "2D1GJNXDV:shared_process": [],
+    "2CZG75UJV:shared_process": [],
+    "2D1S12EE3:shared_process": [],
+    "2D1VUNY9B:shared_process": [],
+    "2CZXA9E8M:shared_process": [],
+    "2D1MB2NBE:shared_process": [],
+    "2D12NYX3Y:shared_process": [],
+    "2CYGWYKC4:shared_process": [],
+    "2CZP6XJRX:shared_process": [],
+    "2CY1DJZWG:shared_process": [],
+    "2CZ8PUAK4:shared_process": [],
+    "2D29JPMCT:shared_process": [],
+    "2CZM9UTCU:shared_process": [],
+    "2CXXUV9AJ:shared_process": []
+  },
+  "config": {
+    "looknfeel": "simple",
+    "personalizedMode": "false"
+  },
+  "info": {}
+}
