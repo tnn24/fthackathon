@@ -1,0 +1,155 @@
+{
+  "paragraphs": [
+    {
+      "text": "%md \n\nTurn CSV file into a SQLite database for fast query\n",
+      "user": "anonymous",
+      "dateUpdated": "Nov 19, 2017 3:04:01 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cp\u003eTurn CSV file into a SQLite database for fast query\u003c/p\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1511059886103_-994507778",
+      "id": "20171119-025126_503742431",
+      "dateCreated": "Nov 19, 2017 2:51:26 AM",
+      "dateStarted": "Nov 19, 2017 3:04:01 AM",
+      "dateFinished": "Nov 19, 2017 3:04:01 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n\nimport sqlite3\nimport csv\nimport time\n\ncsv_file \u003d \"/notebook/FaithTech-2017-FINAL-FINAL.csv\"\ndb \u003d \"/notebook/data.db\"\ntable_name \u003d \"data\"\nconn \u003d sqlite3.connect(db)\nwith open(csv_file, \u0027rb\u0027) as f:\n    conn.execute(\"DROP TABLE IF EXISTS \" + table_name)\n    f.readline()\n    conn.execute(\"CREATE TABLE IF NOT EXISTS %s (\" % table_name +\n            \"ID                      INTEGER,\" +\n            \"FIRST_NAME              TEXT,\" +\n            \"LAST_NAME               TEXT,\" +\n            \"EMAIL                   TEXT,\" +\n            \"GENDER                  TEXT,\" +\n            \"AGE                     INTEGER,\" +\n            \"SCHOOL                  TEXT,\" +\n            \"RELIGIOUS_BACKGROUND    TEXT,\" +\n            \"DENOMINATION            TEXT,\" +\n            \"CHURCH_NAME             TEXT,\" +\n            \"HOBBIES                 TEXT,\" +\n            \"CITY                    TEXT,\" +\n            \"COUNTRY                 TEXT,\" +\n            \"POSTAL_CODE             TEXT,\" +\n            \"CONVERSATION_START      INTEGER,\" +\n            \"CONVERSATION_END        INTEGER,\" +\n            \"CONVERSATION_TOPIC      TEXT,\" +\n            \"CONVERSATION_RATING     INTEGER,\" +\n            \"CONVERSATION_OUTCOME    TEXT,\" +\n            \"GRADE                   INTEGER\" +\n        \")\")\n    csv_reader \u003d csv.reader(f, delimiter\u003d\",\")\n    for line in csv_reader:\n        values \u003d list()\n        for i in range(len(line)):\n            if \"\\\"\" in line[i]:\n                line[i] \u003d line[i].replace(\"\\\"\",\"\u0027\")\n            if i in [0, 5, 18, 20]:\n                values.append(str(line[i]))\n            elif i \u003d\u003d 14:\n                continue\n            elif i in [15, 16]:\n                values.append(str(time.mktime(time.strptime(line[14] + \" \" + line[i], \"%m/%d/%Y %H:%M\"))))\n            else:\n                values.append(\"\\\"\" + line[i] + \"\\\"\")\n        try:\n            conn.execute(\"INSERT INTO data VALUES (%s)\" % \",\".join(values))\n        except:\n            print \"INSERT INTO data VALUES (%s)\" % \",\".join(values)\nconn.commit()",
+      "user": "anonymous",
+      "dateUpdated": "Nov 19, 2017 3:04:01 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/python",
+        "editorHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1511035601041_1232778111",
+      "id": "20171118-200641_154563232",
+      "dateCreated": "Nov 18, 2017 8:06:41 PM",
+      "dateStarted": "Nov 19, 2017 3:04:01 AM",
+      "dateFinished": "Nov 19, 2017 3:04:02 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n\nconn.close()",
+      "user": "anonymous",
+      "dateUpdated": "Nov 19, 2017 3:04:01 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/python",
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1511050523654_828781522",
+      "id": "20171119-001523_1717159770",
+      "dateCreated": "Nov 19, 2017 12:15:23 AM",
+      "dateStarted": "Nov 19, 2017 3:04:02 AM",
+      "dateFinished": "Nov 19, 2017 3:04:02 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "user": "anonymous",
+      "dateUpdated": "Nov 19, 2017 3:04:01 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala"
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1511059992946_-65369833",
+      "id": "20171119-025312_1695653095",
+      "dateCreated": "Nov 19, 2017 2:53:12 AM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "Data Parsing Function",
+  "id": "2D1JDNC1U",
+  "angularObjects": {
+    "2CZG4MZ82:shared_process": [],
+    "2D124C372:shared_process": [],
+    "2D1XFV21D:shared_process": [],
+    "2CYSM1536:shared_process": [],
+    "2CXCCDAHF:shared_process": [],
+    "2CYVRJ4DN:shared_process": [],
+    "2CYSTYDEC:shared_process": [],
+    "2CYDHCWVS:shared_process": [],
+    "2CZCT8J1G:shared_process": [],
+    "2D11CWWX1:shared_process": [],
+    "2CYJGD2HZ:shared_process": [],
+    "2CYAV22WC:shared_process": [],
+    "2D1VR8RET:shared_process": [],
+    "2CZWEK5BD:shared_process": [],
+    "2CZ3PC7HX:shared_process": [],
+    "2D1U5Q18X:shared_process": [],
+    "2D1M69MZR:shared_process": [],
+    "2D1XVPM36:shared_process": [],
+    "2D24QBB36:shared_process": []
+  },
+  "config": {},
+  "info": {}
+}
