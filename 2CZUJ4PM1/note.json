@@ -4,7 +4,7 @@
       "title": "Select what you would like to view",
       "text": "%python",
       "user": "anonymous",
-      "dateUpdated": "Nov 19, 2017 7:04:28 AM",
+      "dateUpdated": "Nov 19, 2017 8:01:58 PM",
       "config": {
         "colWidth": 6.0,
         "enabled": true,
@@ -47,7 +47,7 @@
     {
       "text": "%pyspark\n\nimport sqlite3\n\ndb \u003d \"/notebook/data/data.db\"\ntable_name \u003d \"data\"\nconn \u003d sqlite3.connect(db)\n",
       "user": "anonymous",
-      "dateUpdated": "Nov 19, 2017 7:04:49 AM",
+      "dateUpdated": "Nov 19, 2017 8:01:58 PM",
       "config": {
         "colWidth": 6.0,
         "enabled": true,
@@ -73,8 +73,8 @@
       "jobName": "paragraph_1511061392068_-541092449",
       "id": "20171119-031632_441583707",
       "dateCreated": "Nov 19, 2017 3:16:32 AM",
-      "dateStarted": "Nov 19, 2017 7:04:49 AM",
-      "dateFinished": "Nov 19, 2017 7:04:49 AM",
+      "dateStarted": "Nov 19, 2017 8:01:58 PM",
+      "dateFinished": "Nov 19, 2017 8:01:58 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -82,9 +82,9 @@
       "title": "Select Grade:",
       "text": "%pyspark\n\noptions \u003d list()\nfor k in conn.execute(\"select GRADE from %s\" % table_name):\n    options.append(k[0])\noptions \u003d list(set(options))\ngrades \u003d [g for g in z.checkbox(\"Select Grade(s)\",\n        [(str(i), str(i)) for i in options],\n        options)]\n",
       "user": "anonymous",
-      "dateUpdated": "Nov 19, 2017 7:04:49 AM",
+      "dateUpdated": "Nov 19, 2017 8:01:58 PM",
       "config": {
-        "colWidth": 7.0,
+        "colWidth": 8.0,
         "enabled": true,
         "results": {},
         "editorSetting": {
@@ -105,11 +105,8 @@
             11.0,
             12.0,
             9.0,
-            "10",
-            "12",
             "8",
-            "9",
-            "11"
+            "9"
           ],
           "fruit": []
         },
@@ -159,49 +156,18 @@
       "jobName": "paragraph_1511051186477_1482252076",
       "id": "20171119-002626_1018963336",
       "dateCreated": "Nov 19, 2017 12:26:26 AM",
-      "dateStarted": "Nov 19, 2017 7:04:49 AM",
-      "dateFinished": "Nov 19, 2017 7:04:49 AM",
-      "status": "FINISHED",
-      "progressUpdateIntervalMs": 500
-    },
-    {
-      "text": "%pyspark\n\nwhere_grade \u003d \"\"\nif grades:\n    where_grade \u003d (\"(\" +\n        \" OR \".join([\"GRADE \u003d \" + i for i in grades]) +\n        \")\")\n",
-      "user": "anonymous",
-      "dateUpdated": "Nov 19, 2017 7:04:28 AM",
-      "config": {
-        "colWidth": 12.0,
-        "enabled": true,
-        "results": {},
-        "editorSetting": {
-          "language": "python"
-        },
-        "editorMode": "ace/mode/python",
-        "editorHide": true
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": []
-      },
-      "apps": [],
-      "jobName": "paragraph_1511072495215_964251491",
-      "id": "20171119-062135_388833309",
-      "dateCreated": "Nov 19, 2017 6:21:35 AM",
-      "dateStarted": "Nov 19, 2017 7:04:21 AM",
-      "dateFinished": "Nov 19, 2017 7:04:21 AM",
+      "dateStarted": "Nov 19, 2017 8:01:58 PM",
+      "dateFinished": "Nov 19, 2017 8:01:58 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "title": "Start Date",
-      "text": "%pyspark\n# Create text input form\nstart_month \u003d z.select(\"Month:\", [(1, \u0027Jan\u0027),(2,\u0027Feb\u0027),(3,\u0027Mar\u0027),(4,\u0027Apr\u0027),(5,\u0027May\u0027),(6,\u0027June\u0027),(7,\u0027July\u0027),(8,\u0027Aug\u0027),(9,\u0027Sept\u0027),(10,\u0027Oct\u0027),(11,\u0027Nov\u0027),(12,\u0027Dec\u0027)])\n\n# Create text input form\nstart_day \u003d z.select(\"Day:\", [(1, \u00271\u0027),(2,\u00272\u0027),(3,\u00273\u0027),(4,\u00274\u0027),(5,\u00275\u0027),(6,\u00276\u0027),(7,\u00277\u0027),(8,\u00278\u0027),(9,\u00279\u0027),(10,\u002710\u0027),\n                           (11,\u002711\u0027),(13,\u002713\u0027),(14,\u002714\u0027),(15,\u002715\u0027),(16,\u002716\u0027),(17,\u002717\u0027),(18,\u002718\u0027),(19,\u002719\u0027),(20,\u002720\u0027),\n                           (21,\u002721\u0027),(22,\u002722\u0027),(23,\u002723\u0027),(24,\u002724\u0027),(25,\u002725\u0027),(26,\u002726\u0027),(27,\u002727\u0027),(28,\u002728\u0027),(29,\u002729\u0027),(30,\u002730\u0027),(31,\u002731\u0027)])\n             \nstart_year \u003d z.select(\"Year:\", [(2015, \u00272015\u0027),(2016,\u00272016\u0027),(2017,\u00272017\u0027)])              ",
+      "text": "%pyspark\n# Create text input form\nstart_month \u003d z.select(\"Month:\", [(1, \u0027Jan\u0027),(2,\u0027Feb\u0027),(3,\u0027Mar\u0027),(4,\u0027Apr\u0027),(5,\u0027May\u0027),(6,\u0027June\u0027),(7,\u0027July\u0027),(8,\u0027Aug\u0027),(9,\u0027Sept\u0027),(10,\u0027Oct\u0027),(11,\u0027Nov\u0027),(12,\u0027Dec\u0027)])\n\n# Create text input form\nstart_day \u003d z.select(\"Day:\", [(1, \u00271\u0027),(2,\u00272\u0027),(3,\u00273\u0027),(4,\u00274\u0027),(5,\u00275\u0027),(6,\u00276\u0027),(7,\u00277\u0027),(8,\u00278\u0027),(9,\u00279\u0027),(10,\u002710\u0027),\n                           (11,\u002711\u0027),(13,\u002713\u0027),(14,\u002714\u0027),(15,\u002715\u0027),(16,\u002716\u0027),(17,\u002717\u0027),(18,\u002718\u0027),(19,\u002719\u0027),(20,\u002720\u0027),\n                           (21,\u002721\u0027),(22,\u002722\u0027),(23,\u002723\u0027),(24,\u002724\u0027),(25,\u002725\u0027),(26,\u002726\u0027),(27,\u002727\u0027),(28,\u002728\u0027),(29,\u002729\u0027),(30,\u002730\u0027),(31,\u002731\u0027)])\n             \nstart_year \u003d z.select(\"Year:\", [(2015, \u00272015\u0027),(2016,\u00272016\u0027),(2017,\u00272017\u0027),(2018,\u00272018\u0027)])              ",
       "user": "anonymous",
-      "dateUpdated": "Nov 19, 2017 7:04:49 AM",
+      "dateUpdated": "Nov 19, 2017 8:01:58 PM",
       "config": {
-        "colWidth": 4.0,
+        "colWidth": 5.0,
         "enabled": true,
         "results": {},
         "editorSetting": {
@@ -217,9 +183,9 @@
         "params": {
           "formName": "",
           "Select Grade:": 1.0,
-          "Month:": 1.0,
-          "Day:": 4.0,
-          "Year:": 2017.0
+          "Month:": 6.0,
+          "Day:": 1.0,
+          "Year:": 2018.0
         },
         "forms": {
           "Month:": {
@@ -425,6 +391,10 @@
               {
                 "value": 2017.0,
                 "displayName": "2017"
+              },
+              {
+                "value": 2018.0,
+                "displayName": "2018"
               }
             ],
             "hidden": false
@@ -439,8 +409,8 @@
       "jobName": "paragraph_1511051658556_1927292183",
       "id": "20171119-003418_670817004",
       "dateCreated": "Nov 19, 2017 12:34:18 AM",
-      "dateStarted": "Nov 19, 2017 7:04:49 AM",
-      "dateFinished": "Nov 19, 2017 7:04:49 AM",
+      "dateStarted": "Nov 19, 2017 8:01:58 PM",
+      "dateFinished": "Nov 19, 2017 8:01:58 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -448,7 +418,7 @@
       "title": "",
       "text": "",
       "user": "anonymous",
-      "dateUpdated": "Nov 19, 2017 7:04:28 AM",
+      "dateUpdated": "Nov 19, 2017 8:01:58 PM",
       "config": {
         "colWidth": 1.0,
         "enabled": true,
@@ -487,11 +457,11 @@
     },
     {
       "title": "End Date",
-      "text": "%pyspark\n# Create text input form\nend_month \u003d z.select(\"Month:\", [(1, \u0027Jan\u0027),(2,\u0027Feb\u0027),(3,\u0027Mar\u0027),(4,\u0027Apr\u0027),(5,\u0027May\u0027),(6,\u0027June\u0027),(7,\u0027July\u0027),(8,\u0027Aug\u0027),(9,\u0027Sept\u0027),(10,\u0027Oct\u0027),(11,\u0027Nov\u0027),(12,\u0027Dec\u0027)])\n\n# Create text input form\nend_day \u003d z.select(\"Day:\", [(1, \u00271\u0027),(2,\u00272\u0027),(3,\u00273\u0027),(4,\u00274\u0027),(5,\u00275\u0027),(6,\u00276\u0027),(7,\u00277\u0027),(8,\u00278\u0027),(9,\u00279\u0027),(10,\u002710\u0027),\n                           (11,\u002711\u0027),(13,\u002713\u0027),(14,\u002714\u0027),(15,\u002715\u0027),(16,\u002716\u0027),(17,\u002717\u0027),(18,\u002718\u0027),(19,\u002719\u0027),(20,\u002720\u0027),\n                           (21,\u002721\u0027),(22,\u002722\u0027),(23,\u002723\u0027),(24,\u002724\u0027),(25,\u002725\u0027),(26,\u002726\u0027),(27,\u002727\u0027),(28,\u002728\u0027),(29,\u002729\u0027),(30,\u002730\u0027),(31,\u002731\u0027)])\n             \nend_year \u003d z.select(\"Year:\", [(2015, \u00272015\u0027),(2016,\u00272016\u0027),(2017,\u00272017\u0027)])              ",
+      "text": "%pyspark\n# Create text input form\nend_month \u003d z.select(\"Month:\", [(1, \u0027Jan\u0027),(2,\u0027Feb\u0027),(3,\u0027Mar\u0027),(4,\u0027Apr\u0027),(5,\u0027May\u0027),(6,\u0027June\u0027),(7,\u0027July\u0027),(8,\u0027Aug\u0027),(9,\u0027Sept\u0027),(10,\u0027Oct\u0027),(11,\u0027Nov\u0027),(12,\u0027Dec\u0027)])\n\n# Create text input form\nend_day \u003d z.select(\"Day:\", [(1, \u00271\u0027),(2,\u00272\u0027),(3,\u00273\u0027),(4,\u00274\u0027),(5,\u00275\u0027),(6,\u00276\u0027),(7,\u00277\u0027),(8,\u00278\u0027),(9,\u00279\u0027),(10,\u002710\u0027),\n                           (11,\u002711\u0027),(13,\u002713\u0027),(14,\u002714\u0027),(15,\u002715\u0027),(16,\u002716\u0027),(17,\u002717\u0027),(18,\u002718\u0027),(19,\u002719\u0027),(20,\u002720\u0027),\n                           (21,\u002721\u0027),(22,\u002722\u0027),(23,\u002723\u0027),(24,\u002724\u0027),(25,\u002725\u0027),(26,\u002726\u0027),(27,\u002727\u0027),(28,\u002728\u0027),(29,\u002729\u0027),(30,\u002730\u0027),(31,\u002731\u0027)])\n             \nend_year \u003d z.select(\"Year:\", [(2015, \u00272015\u0027),(2016,\u00272016\u0027),(2017,\u00272017\u0027),(2018,\u00272018\u0027)])              ",
       "user": "anonymous",
-      "dateUpdated": "Nov 19, 2017 7:04:49 AM",
+      "dateUpdated": "Nov 19, 2017 8:01:58 PM",
       "config": {
-        "colWidth": 4.0,
+        "colWidth": 5.0,
         "enabled": true,
         "results": {},
         "editorSetting": {
@@ -507,9 +477,9 @@
         "params": {
           "formName": "",
           "Select Grade:": 1.0,
-          "Month:": 12.0,
-          "Day:": 2.0,
-          "Year:": 2017.0
+          "Month:": 8.0,
+          "Day:": 31.0,
+          "Year:": 2018.0
         },
         "forms": {
           "Month:": {
@@ -715,6 +685,10 @@
               {
                 "value": 2017.0,
                 "displayName": "2017"
+              },
+              {
+                "value": 2018.0,
+                "displayName": "2018"
               }
             ],
             "hidden": false
@@ -729,15 +703,15 @@
       "jobName": "paragraph_1511053327863_-386624405",
       "id": "20171119-010207_1218012255",
       "dateCreated": "Nov 19, 2017 1:02:07 AM",
-      "dateStarted": "Nov 19, 2017 7:04:49 AM",
-      "dateFinished": "Nov 19, 2017 7:04:49 AM",
+      "dateStarted": "Nov 19, 2017 8:01:58 PM",
+      "dateFinished": "Nov 19, 2017 8:01:59 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%angular\n\n\u003cform class\u003d\"form-inline\"\u003e\n  \u003cbutton type\u003d\"submit\" class\u003d\"btn btn-primary\" ng-click\u003d\"z.runParagraph(\u002720171119-002626_1018963336\u0027); \n                                                            z.runParagraph(\u002720171119-003418_670817004\u0027);\n                                                            z.runParagraph(\u002720171119-010207_1218012255\u0027);\n                                                            z.runParagraph(\u002720171119-030524_466812499\u0027);\n                                                            z.runParagraph(\u002720171119-031632_441583707\u0027);\n                                                            z.runParagraph(\u002720171119-051609_1823306021\u0027);\n                                                            z.runParagraph(\u002720171119-035138_1621305539\u0027);\n                                                            \"\u003e\n    Check Out\u003c/button\u003e\n\u003c/form\u003e\n\n",
       "user": "anonymous",
-      "dateUpdated": "Nov 19, 2017 7:04:28 AM",
+      "dateUpdated": "Nov 19, 2017 8:01:58 PM",
       "config": {
         "colWidth": 9.0,
         "enabled": true,
@@ -754,28 +728,20 @@
         "params": {},
         "forms": {}
       },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "ANGULAR",
-            "data": "\u003cform class\u003d\"form-inline\"\u003e\n  \u003cbutton type\u003d\"submit\" class\u003d\"btn btn-primary\" ng-click\u003d\"z.runParagraph(\u002720171119-002626_1018963336\u0027); \n                                                            z.runParagraph(\u002720171119-003418_670817004\u0027);\n                                                            z.runParagraph(\u002720171119-010207_1218012255\u0027);\n                                                            z.runParagraph(\u002720171119-030524_466812499\u0027);\n                                                            z.runParagraph(\u002720171119-031632_441583707\u0027);\n                                                            z.runParagraph(\u002720171119-051609_1823306021\u0027);\n                                                            z.runParagraph(\u002720171119-035138_1621305539\u0027);\n                                                            \"\u003e\n    Check Out\u003c/button\u003e\n\u003c/form\u003e"
-          }
-        ]
-      },
       "apps": [],
       "jobName": "paragraph_1511052973371_-1999798278",
       "id": "20171119-005613_433625229",
       "dateCreated": "Nov 19, 2017 12:56:13 AM",
-      "dateStarted": "Nov 19, 2017 7:04:22 AM",
-      "dateFinished": "Nov 19, 2017 7:04:22 AM",
+      "dateStarted": "Nov 19, 2017 8:01:58 PM",
+      "dateFinished": "Nov 19, 2017 8:01:58 PM",
       "status": "FINISHED",
+      "errorMessage": "",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%pyspark\nfrom datetime import datetime\n\nd \u003d datetime(int(start_year), int(start_month), int(start_day))\nstart_date \u003d d.strftime(\u0027%s\u0027)\n\nd \u003d datetime(int(end_year), int(end_month), int(end_day))\nend_date \u003d d.strftime(\u0027%s\u0027)\n\n",
       "user": "anonymous",
-      "dateUpdated": "Nov 19, 2017 7:04:49 AM",
+      "dateUpdated": "Nov 19, 2017 8:01:58 PM",
       "config": {
         "colWidth": 3.0,
         "enabled": true,
@@ -799,15 +765,15 @@
       "jobName": "paragraph_1511060724962_40077081",
       "id": "20171119-030524_466812499",
       "dateCreated": "Nov 19, 2017 3:05:24 AM",
-      "dateStarted": "Nov 19, 2017 7:04:49 AM",
-      "dateFinished": "Nov 19, 2017 7:04:49 AM",
+      "dateStarted": "Nov 19, 2017 8:01:59 PM",
+      "dateFinished": "Nov 19, 2017 8:01:59 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%pyspark\n\nimport pandas as pd\nimport time\n\n\nquery \u003d \"select CONVERSATION_TOPIC from \" + table_name\nif where_grade or start_date or end_date:\n    query +\u003d \" where \"\n    if where_grade:\n        query +\u003d where_grade\nquery +\u003d (\" and CONVERSATION_START \u003e\u003d %s and CONVERSATION_END \u003c\u003d %s\" % (start_date, end_date))\nresults \u003d dict()\nfor k in conn.execute(query):\n    if k[0] not in results:\n        results[k[0]] \u003d 0\n    else:\n        results[k[0]] +\u003d 1\n        \nif not results:\n    print \"No records found\"\n        \ntry:\n    dic \u003d {\"topic\": list(), \"count\": list()}\n    for topic in results:\n        dic[\"topic\"].append(topic)\n        dic[\"count\"].append(results[topic])\n\n    data \u003d pd.DataFrame(data\u003ddic)\n    df \u003d sqlContext.createDataFrame(data)\n    df.registerTempTable(\"test\")\n\n    pattern \u003d \u0027%Y-%m-%d\u0027\n    print \"Topics that students%s discussed between %s and %s\" % ((\" in grades \" + \", \".join(sorted(grades))) if grades else \" in all grades\",\n            time.strftime(pattern, time.localtime(float(start_date))), time.strftime(pattern, time.localtime(float(end_date))))\nexcept:\n    pass",
+      "text": "%pyspark\n\nimport pandas as pd\nimport time\n\nsql_table \u003d \"length\"\n\nwhere_grade \u003d \"\"\nif grades:\n    where_grade \u003d (\"(\" +\n        \" OR \".join([\"GRADE \u003d \" + i for i in grades]) +\n        \")\")\n\nquery \u003d \"select CONVERSATION_START, CONVERSATION_END from \" + table_name\nif where_grade or start_date or end_date:\n    query +\u003d \" where \"\n    if where_grade:\n        query +\u003d where_grade\n    query +\u003d (\" and CONVERSATION_START \u003e\u003d %s and CONVERSATION_END \u003c\u003d %s\" % (start_date, end_date))\n    \nresults \u003d {\"start\": list(), \"length\": list()}\npattern \u003d \u0027%Y-%m-%d\u0027\nfor k in conn.execute(query + \" order by CONVERSATION_START\"):\n    results[\"start\"].append(time.strftime(pattern, time.localtime(float(k[0]))))\n    results[\"length\"].append((k[1] - k[0])/60)\n    \nif not results:\n    print \"No records found\"\n\ntry:\n    data \u003d pd.DataFrame(data\u003dresults)\n    df \u003d sqlContext.createDataFrame(data)\n    df.registerTempTable(sql_table)\n    print \"Length of conversations with students%s between %s and %s\" % ((\" in grades \" + \", \".join(sorted(grades))) if grades else \" in all grades\",\n            time.strftime(pattern, time.localtime(float(start_date))), time.strftime(pattern, time.localtime(float(end_date))))\nexcept:\n    pass\n",
       "user": "anonymous",
-      "dateUpdated": "Nov 19, 2017 7:04:49 AM",
+      "dateUpdated": "Nov 19, 2017 8:01:59 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -827,7 +793,90 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "Topics that students in grades 10, 11, 12, 8, 9 discussed between 2017-01-04 and 2017-12-02\n"
+            "data": "Length of conversations with students in grades 8, 9 between 2018-06-01 and 2018-08-31\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1511120956111_-1011904375",
+      "id": "20171119-194916_369968058",
+      "dateCreated": "Nov 19, 2017 7:49:16 PM",
+      "dateStarted": "Nov 19, 2017 8:01:59 PM",
+      "dateFinished": "Nov 19, 2017 8:01:59 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Total",
+      "text": "%sql\nSELECT start, length\nFROM length\n",
+      "user": "anonymous",
+      "dateUpdated": "Nov 19, 2017 8:01:59 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "stackedAreaChart",
+              "height": 309.0,
+              "optionOpen": false
+            },
+            "helium": {}
+          }
+        },
+        "editorSetting": {
+          "language": "sql"
+        },
+        "editorMode": "ace/mode/sql",
+        "editorHide": true,
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "start\tlength\n2018-06-01\t433\n2018-06-01\t458\n2018-06-01\t407\n2018-06-01\t371\n2018-06-02\t627\n2018-06-02\t420\n2018-06-02\t356\n2018-06-02\t336\n2018-06-02\t79\n2018-06-02\t176\n2018-06-02\t116\n2018-06-03\t554\n2018-06-03\t536\n2018-06-03\t201\n2018-06-04\t334\n2018-06-04\t569\n2018-06-04\t110\n2018-06-05\t214\n2018-06-05\t192\n2018-06-06\t289\n2018-06-06\t285\n2018-06-06\t296\n2018-06-07\t580\n2018-06-07\t226\n2018-06-08\t560\n2018-06-08\t248\n2018-06-08\t481\n2018-06-08\t225\n2018-06-09\t211\n2018-06-09\t193\n2018-06-10\t355\n2018-06-10\t407\n2018-06-10\t268\n2018-06-10\t131\n2018-06-11\t327\n2018-06-12\t611\n2018-06-12\t454\n2018-06-12\t547\n2018-06-12\t455\n2018-06-12\t378\n2018-06-12\t102\n2018-06-13\t526\n2018-06-14\t288\n2018-06-14\t130\n2018-06-15\t457\n2018-06-15\t146\n2018-06-15\t381\n2018-06-16\t312\n2018-06-17\t377\n2018-06-17\t286\n2018-06-17\t300\n2018-06-17\t366\n2018-06-17\t45\n2018-06-18\t271\n2018-06-18\t450\n2018-06-19\t477\n2018-06-19\t281\n2018-06-19\t37\n2018-06-20\t291\n2018-06-20\t198\n2018-06-20\t332\n2018-06-21\t493\n2018-06-21\t592\n2018-06-21\t43\n2018-06-22\t315\n2018-06-23\t568\n2018-06-23\t592\n2018-06-23\t606\n2018-06-23\t534\n2018-06-24\t344\n2018-06-24\t400\n2018-06-24\t502\n2018-06-25\t532\n2018-06-25\t505\n2018-06-25\t281\n2018-06-25\t61\n2018-06-26\t277\n2018-06-26\t187\n2018-06-27\t469\n2018-06-27\t449\n2018-06-27\t105\n2018-06-28\t29\n2018-06-29\t637\n2018-06-29\t419\n2018-06-30\t448\n2018-06-30\t538\n2018-06-30\t484\n2018-06-30\t119\n2018-06-30\t413\n2018-07-01\t685\n2018-07-01\t377\n2018-07-01\t275\n2018-07-01\t277\n2018-07-01\t444\n2018-07-01\t285\n2018-07-02\t204\n2018-07-02\t214\n2018-07-02\t263\n2018-07-03\t297\n2018-07-03\t326\n2018-07-04\t444\n2018-07-04\t344\n2018-07-04\t364\n2018-07-05\t559\n2018-07-05\t243\n2018-07-05\t194\n2018-07-06\t416\n2018-07-06\t374\n2018-07-07\t333\n2018-07-07\t423\n2018-07-07\t494\n2018-07-07\t456\n2018-07-07\t292\n2018-07-08\t649\n2018-07-08\t376\n2018-07-08\t324\n2018-07-08\t415\n2018-07-10\t281\n2018-07-10\t296\n2018-07-10\t599\n2018-07-10\t274\n2018-07-10\t430\n2018-07-11\t325\n2018-07-11\t442\n2018-07-11\t469\n2018-07-11\t430\n2018-07-12\t502\n2018-07-12\t341\n2018-07-13\t643\n2018-07-13\t524\n2018-07-13\t593\n2018-07-13\t188\n2018-07-13\t404\n2018-07-13\t213\n2018-07-13\t77\n2018-07-13\t410\n2018-07-14\t342\n2018-07-15\t305\n2018-07-15\t421\n2018-07-15\t407\n2018-07-16\t607\n2018-07-16\t605\n2018-07-16\t397\n2018-07-16\t331\n2018-07-16\t168\n2018-07-16\t156\n2018-07-16\t131\n2018-07-18\t228\n2018-07-18\t367\n2018-07-18\t51\n2018-07-19\t388\n2018-07-19\t368\n2018-07-20\t528\n2018-07-20\t242\n2018-07-20\t151\n2018-07-20\t343\n2018-07-21\t472\n2018-07-21\t548\n2018-07-21\t249\n2018-07-21\t254\n2018-07-21\t134\n2018-07-22\t542\n2018-07-22\t194\n2018-07-22\t253\n2018-07-22\t228\n2018-07-23\t397\n2018-07-23\t502\n2018-07-23\t286\n2018-07-24\t569\n2018-07-24\t464\n2018-07-24\t185\n2018-07-24\t166\n2018-07-25\t331\n2018-07-25\t441\n2018-07-26\t223\n2018-07-27\t434\n2018-07-28\t233\n2018-07-28\t349\n2018-07-28\t141\n2018-07-29\t555\n2018-07-30\t221\n2018-07-30\t336\n2018-07-30\t446\n2018-07-30\t228\n2018-07-30\t323\n2018-07-31\t340\n2018-07-31\t240\n2018-08-01\t687\n2018-08-01\t307\n2018-08-01\t188\n2018-08-01\t42\n2018-08-02\t634\n2018-08-02\t309\n2018-08-02\t516\n2018-08-02\t471\n2018-08-03\t345\n2018-08-03\t158\n2018-08-03\t419\n2018-08-04\t296\n2018-08-05\t518\n2018-08-06\t605\n2018-08-06\t219\n2018-08-07\t368\n2018-08-08\t235\n2018-08-08\t231\n2018-08-08\t157\n2018-08-08\t174\n2018-08-08\t189\n2018-08-09\t371\n2018-08-10\t385\n2018-08-10\t602\n2018-08-10\t331\n2018-08-10\t112\n2018-08-10\t117\n2018-08-11\t568\n2018-08-11\t350\n2018-08-11\t154\n2018-08-11\t292\n2018-08-11\t386\n2018-08-12\t323\n2018-08-12\t495\n2018-08-13\t396\n2018-08-13\t248\n2018-08-13\t392\n2018-08-13\t483\n2018-08-14\t388\n2018-08-14\t296\n2018-08-14\t499\n2018-08-14\t360\n2018-08-15\t320\n2018-08-15\t603\n2018-08-15\t378\n2018-08-15\t195\n2018-08-15\t464\n2018-08-15\t399\n2018-08-15\t361\n2018-08-16\t546\n2018-08-16\t388\n2018-08-17\t488\n2018-08-17\t521\n2018-08-18\t316\n2018-08-18\t425\n2018-08-18\t351\n2018-08-18\t387\n2018-08-20\t558\n2018-08-20\t257\n2018-08-20\t295\n2018-08-20\t387\n2018-08-21\t387\n2018-08-22\t687\n2018-08-22\t469\n2018-08-22\t433\n2018-08-22\t623\n2018-08-22\t314\n2018-08-22\t379\n2018-08-22\t481\n2018-08-23\t410\n2018-08-23\t323\n2018-08-23\t329\n2018-08-23\t366\n2018-08-23\t379\n2018-08-24\t483\n2018-08-24\t502\n2018-08-24\t417\n2018-08-24\t292\n2018-08-25\t259\n2018-08-25\t487\n2018-08-25\t454\n2018-08-25\t340\n2018-08-25\t174\n2018-08-25\t222\n2018-08-26\t541\n2018-08-26\t61\n2018-08-28\t125\n2018-08-29\t700\n2018-08-29\t510\n2018-08-29\t570\n2018-08-29\t206\n2018-08-30\t552\n2018-08-30\t579\n2018-08-30\t533\n2018-08-30\t273\n2018-08-30\t161\n2018-08-30\t254\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1511121383997_166193469",
+      "id": "20171119-195623_466215113",
+      "dateCreated": "Nov 19, 2017 7:56:23 PM",
+      "dateStarted": "Nov 19, 2017 8:01:59 PM",
+      "dateFinished": "Nov 19, 2017 8:01:59 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n\nimport pandas as pd\nimport time\n\nsql_table \u003d \"topics\"\n\nwhere_grade \u003d \"\"\nif grades:\n    where_grade \u003d (\"(\" +\n        \" OR \".join([\"GRADE \u003d \" + i for i in grades]) +\n        \")\")\n\nquery \u003d \"select CONVERSATION_TOPIC, GENDER from \" + table_name\nif where_grade or start_date or end_date:\n    query +\u003d \" where \"\n    if where_grade:\n        query +\u003d where_grade\n    query +\u003d (\" and CONVERSATION_START \u003e\u003d %s and CONVERSATION_END \u003c\u003d %s\" % (start_date, end_date))\n    \nresults \u003d dict()\nfor k in conn.execute(query):\n    if k[0] not in results:\n        results[k[0]] \u003d dict()\n    if k[1].lower() not in results[k[0]]:\n        results[k[0]][k[1].lower()] \u003d 1\n    else:\n        results[k[0]][k[1].lower()] +\u003d 1\n        \nif not results:\n    print \"No records found\"\n        \ntry:\n    dic \u003d {\"topic\": list(), \"male_count\": list(), \"female_count\": list(), \"total_count\": list()}\n    for topic in results:\n        dic[\"topic\"].append(topic)\n        dic[\"male_count\"].append(results[topic][\"male\"])\n        dic[\"female_count\"].append(results[topic][\"female\"])\n        dic[\"total_count\"].append(results[topic][\"male\"] + results[topic][\"female\"])\n    \n    data \u003d pd.DataFrame(data\u003ddic)\n    df \u003d sqlContext.createDataFrame(data)\n    df.registerTempTable(sql_table)\n    pattern \u003d \u0027%Y-%m-%d\u0027\n    print \"Topics that students%s discussed between %s and %s\" % ((\" in grades \" + \", \".join(sorted(grades))) if grades else \" in all grades\",\n            time.strftime(pattern, time.localtime(float(start_date))), time.strftime(pattern, time.localtime(float(end_date))))\nexcept:\n    pass\n",
+      "user": "anonymous",
+      "dateUpdated": "Nov 19, 2017 8:01:59 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python"
+        },
+        "editorMode": "ace/mode/python",
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Topics that students in grades 8, 9 discussed between 2018-06-01 and 2018-08-31\n"
           }
         ]
       },
@@ -835,17 +884,18 @@
       "jobName": "paragraph_1511068569683_-507805426",
       "id": "20171119-051609_1823306021",
       "dateCreated": "Nov 19, 2017 5:16:09 AM",
-      "dateStarted": "Nov 19, 2017 7:04:49 AM",
-      "dateFinished": "Nov 19, 2017 7:04:49 AM",
+      "dateStarted": "Nov 19, 2017 8:01:59 PM",
+      "dateFinished": "Nov 19, 2017 8:01:59 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%sql\nSELECT topic, count\nFROM test\n",
+      "title": "Total",
+      "text": "%sql\nSELECT topic, total_count\nFROM topics\n",
       "user": "anonymous",
-      "dateUpdated": "Nov 19, 2017 7:04:49 AM",
+      "dateUpdated": "Nov 19, 2017 8:01:59 PM",
       "config": {
-        "colWidth": 12.0,
+        "colWidth": 4.0,
         "enabled": true,
         "results": {
           "0": {
@@ -861,6 +911,76 @@
           "language": "sql"
         },
         "editorMode": "ace/mode/sql",
+        "editorHide": true,
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "topic\ttotal_count\nFaith\t9\nSuicide\t24\nLove\t7\nBible\t20\nCareer\t7\nSex\t9\nAnxiety\t86\nMarriage\t13\nGospel\t36\nDiscipleship\t5\nWorship\t12\nDepression\t56\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1511063498706_891915482",
+      "id": "20171119-035138_1621305539",
+      "dateCreated": "Nov 19, 2017 3:51:38 AM",
+      "dateStarted": "Nov 19, 2017 8:01:59 PM",
+      "dateFinished": "Nov 19, 2017 8:01:59 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Male",
+      "text": "%sql\nSELECT topic, male_count\nFROM topics\n",
+      "user": "anonymous",
+      "dateUpdated": "Nov 19, 2017 8:01:59 PM",
+      "config": {
+        "colWidth": 4.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "pieChart",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "stackedAreaChart": {
+                  "style": "stack"
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "topic",
+                  "index": 0.0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "male_count",
+                  "index": 1.0,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "editorSetting": {
+          "language": "sql"
+        },
+        "editorMode": "ace/mode/sql",
+        "lineNumbers": false,
+        "title": true,
         "editorHide": true
       },
       "settings": {
@@ -872,23 +992,247 @@
         "msg": [
           {
             "type": "TABLE",
-            "data": "topic\tcount\nFaith\t4\nAnxiety\t44\nLove\t5\nCareer\t3\nSex\t4\nBible\t9\nMarriage\t4\nSuicide\t20\nGospel\t20\nDiscipleship\t3\nWorship\t2\nDepression\t37\n"
+            "data": "topic\tmale_count\nFaith\t1\nSuicide\t9\nLove\t3\nBible\t8\nCareer\t5\nSex\t4\nAnxiety\t51\nMarriage\t3\nGospel\t15\nDiscipleship\t3\nWorship\t5\nDepression\t31\n"
           }
         ]
       },
       "apps": [],
-      "jobName": "paragraph_1511063498706_891915482",
-      "id": "20171119-035138_1621305539",
-      "dateCreated": "Nov 19, 2017 3:51:38 AM",
-      "dateStarted": "Nov 19, 2017 7:04:49 AM",
-      "dateFinished": "Nov 19, 2017 7:04:49 AM",
+      "jobName": "paragraph_1511119486928_-1396784614",
+      "id": "20171119-192446_35883243",
+      "dateCreated": "Nov 19, 2017 7:24:46 PM",
+      "dateStarted": "Nov 19, 2017 8:01:59 PM",
+      "dateFinished": "Nov 19, 2017 8:01:59 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Female",
+      "text": "%sql\nSELECT topic, female_count\nFROM topics\n",
+      "user": "anonymous",
+      "dateUpdated": "Nov 19, 2017 8:01:59 PM",
+      "config": {
+        "colWidth": 4.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "pieChart",
+              "height": 300.0,
+              "optionOpen": false
+            },
+            "helium": {}
+          }
+        },
+        "editorSetting": {
+          "language": "sql"
+        },
+        "editorMode": "ace/mode/sql",
+        "title": true,
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "topic\tfemale_count\nFaith\t8\nSuicide\t15\nLove\t4\nBible\t12\nCareer\t2\nSex\t5\nAnxiety\t35\nMarriage\t10\nGospel\t21\nDiscipleship\t2\nWorship\t7\nDepression\t25\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1511119485560_-1165935274",
+      "id": "20171119-192445_2126801299",
+      "dateCreated": "Nov 19, 2017 7:24:45 PM",
+      "dateStarted": "Nov 19, 2017 8:01:59 PM",
+      "dateFinished": "Nov 19, 2017 8:02:00 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n\nimport pandas as pd\nimport time\n\nsql_table \u003d \"outcome\"\n\nwhere_grade \u003d \"\"\nif grades:\n    where_grade \u003d (\"(\" +\n        \" OR \".join([\"GRADE \u003d \" + i for i in grades]) +\n        \")\")\n\nquery \u003d \"select CONVERSATION_OUTCOME, GENDER from \" + table_name\nif where_grade or start_date or end_date:\n    query +\u003d \" where \"\n    if where_grade:\n        query +\u003d where_grade\n    query +\u003d (\" and CONVERSATION_START \u003e\u003d %s and CONVERSATION_END \u003c\u003d %s\" % (start_date, end_date))\n    \nresults \u003d dict()\nfor k in conn.execute(query):\n    if k[0] not in results:\n        results[k[0]] \u003d dict()\n    if k[1].lower() not in results[k[0]]:\n        results[k[0]][k[1].lower()] \u003d 1\n    else:\n        results[k[0]][k[1].lower()] +\u003d 1\n        \nif not results:\n    print \"No records found\"\ntry:\n    dic \u003d {\"outcome\": list(), \"male_count\": list(), \"female_count\": list(), \"total_count\": list()}\n    for outcome in results:\n        dic[\"outcome\"].append(outcome)\n        dic[\"male_count\"].append(results[outcome][\"male\"])\n        dic[\"female_count\"].append(results[outcome][\"female\"])\n        dic[\"total_count\"].append(results[outcome][\"male\"] + results[outcome][\"female\"])\n    \n    data \u003d pd.DataFrame(data\u003ddic)\n    df \u003d sqlContext.createDataFrame(data)\n    df.registerTempTable(sql_table)\n    pattern \u003d \u0027%Y-%m-%d\u0027\n    print \"Outcome of conversations with students%s between %s and %s\" % ((\" in grades \" + \", \".join(sorted(grades))) if grades else \" in all grades\",\n            time.strftime(pattern, time.localtime(float(start_date))), time.strftime(pattern, time.localtime(float(end_date))))\nexcept:\n    pass\n",
+      "user": "anonymous",
+      "dateUpdated": "Nov 19, 2017 8:02:00 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python"
+        },
+        "editorMode": "ace/mode/python",
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Outcome of conversations with students in grades 8, 9 between 2018-06-01 and 2018-08-31\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1511119761522_-965295039",
+      "id": "20171119-192921_1289415956",
+      "dateCreated": "Nov 19, 2017 7:29:21 PM",
+      "dateStarted": "Nov 19, 2017 8:02:00 PM",
+      "dateFinished": "Nov 19, 2017 8:02:00 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Total",
+      "text": "%sql\nSELECT outcome, total_count\nFROM outcome\n",
+      "user": "anonymous",
+      "dateUpdated": "Nov 19, 2017 8:02:00 PM",
+      "config": {
+        "colWidth": 4.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "pieChart",
+              "height": 309.0,
+              "optionOpen": false
+            },
+            "helium": {}
+          }
+        },
+        "editorSetting": {
+          "language": "sql"
+        },
+        "editorMode": "ace/mode/sql",
+        "editorHide": true,
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "outcome\ttotal_count\nNo Response\t16\nSpiritual Conversation\t117\nOther\t22\nProfession of Faith\t47\nGospel Presentation\t82\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1511119828809_-2010749746",
+      "id": "20171119-193028_337728510",
+      "dateCreated": "Nov 19, 2017 7:30:28 PM",
+      "dateStarted": "Nov 19, 2017 8:02:00 PM",
+      "dateFinished": "Nov 19, 2017 8:02:00 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Male",
+      "text": "%sql\nSELECT outcome, male_count\nFROM outcome",
+      "user": "anonymous",
+      "dateUpdated": "Nov 19, 2017 8:02:00 PM",
+      "config": {
+        "colWidth": 4.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "pieChart",
+              "height": 300.0,
+              "optionOpen": false
+            },
+            "helium": {}
+          }
+        },
+        "editorSetting": {
+          "language": "sql"
+        },
+        "editorMode": "ace/mode/sql",
+        "editorHide": true,
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "outcome\tmale_count\nNo Response\t9\nSpiritual Conversation\t60\nOther\t12\nProfession of Faith\t26\nGospel Presentation\t31\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1511120570730_-1275622124",
+      "id": "20171119-194250_849638662",
+      "dateCreated": "Nov 19, 2017 7:42:50 PM",
+      "dateStarted": "Nov 19, 2017 8:02:00 PM",
+      "dateFinished": "Nov 19, 2017 8:02:00 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Female",
+      "text": "%sql\nSELECT outcome, female_count\nFROM outcome",
+      "user": "anonymous",
+      "dateUpdated": "Nov 19, 2017 8:02:00 PM",
+      "config": {
+        "colWidth": 4.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "pieChart",
+              "height": 300.0,
+              "optionOpen": false
+            },
+            "helium": {}
+          }
+        },
+        "editorSetting": {
+          "language": "sql"
+        },
+        "editorMode": "ace/mode/sql",
+        "editorHide": true,
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "outcome\tfemale_count\nNo Response\t7\nSpiritual Conversation\t57\nOther\t10\nProfession of Faith\t21\nGospel Presentation\t51\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1511120572714_-463032447",
+      "id": "20171119-194252_669906814",
+      "dateCreated": "Nov 19, 2017 7:42:52 PM",
+      "dateStarted": "Nov 19, 2017 8:02:00 PM",
+      "dateFinished": "Nov 19, 2017 8:02:00 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%pyspark\n",
       "user": "anonymous",
-      "dateUpdated": "Nov 19, 2017 7:04:28 AM",
+      "dateUpdated": "Nov 19, 2017 8:02:00 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
